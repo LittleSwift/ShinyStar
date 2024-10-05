@@ -6,7 +6,7 @@ export default {
     extend: {
       backgroundImage: {
         'background': "linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(255,255,255,1) 100%), url('/img/background.jpg')",
-      }
+      },
     },
   },
   plugins: [],

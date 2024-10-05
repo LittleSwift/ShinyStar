@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'DongQingHeiTi';
+    src: url('/public/font/DongQIngHeiTi.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: DongQingHeiTi, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, "Courier New";
+}
