@@ -5,7 +5,7 @@
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@remix-run/node", "vite/client"],
+    "types": ["vite/client"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "module": "ESNext",
