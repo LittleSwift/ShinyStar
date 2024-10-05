@@ -48,4 +48,32 @@ export interface HexoConfig {
   [key: string]: any;
 }
 
-export const config:HexoConfig = window.__hexoConfig | {};
+type HexoPost = {
+  title: string;
+  slug: string;
+  date: Date;
+  updated?: Date;
+  comments?: boolean;
+  layout?: string;
+  content: string;
+  excerpt?: string;
+  categories?: string[];
+  tags?: string[];
+  permalink: string;
+};
+
+type HexoPage = {
+  title: string;
+  layout: string;
+  path: string;
+  content: string;
+};
+
+type HexoSite = {
+  posts: {data:HexoPost[]};
+  pages: {data:HexoPage[]};
+};
+
+
+export const config:HexoConfig = window.__hexoConfig ?? {};
+export const site:HexoSite = window.__hexoSite ?? {};
