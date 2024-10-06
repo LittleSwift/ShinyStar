@@ -48,7 +48,7 @@ export interface HexoConfig {
   [key: string]: any;
 }
 
-type HexoPost = {
+export type HexoPost = {
   title: string;
   slug: string;
   date: Date;
@@ -62,14 +62,14 @@ type HexoPost = {
   permalink: string;
 };
 
-type HexoPage = {
+export type HexoPage = {
   title: string;
   layout: string;
   path: string;
   content: string;
 };
 
-type HexoSite = {
+export type HexoSite = {
   posts: {data:HexoPost[]};
   pages: {data:HexoPage[]};
 };
