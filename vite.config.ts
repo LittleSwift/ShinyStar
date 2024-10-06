@@ -36,7 +36,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'components'),  // Alias for Vue components
+      '~': resolve(__dirname, 'src'),
+      '@': resolve(__dirname, 'src'),
     },
   },
   assetsInclude: ['**/*.ejs'],

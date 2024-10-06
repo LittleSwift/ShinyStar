@@ -1,6 +1,6 @@
 <script setup lang="ts">
-
-import {config, theme} from "../config";
+import {config, theme} from "@/config";
+import { IconoirProvider, Github, Twitter, Mail } from '@iconoir/vue';
 </script>
 
 <template>
@@ -18,8 +18,18 @@ import {config, theme} from "../config";
     </div>
     <div class="flex flex-col m-8">
       <span class="text-2xl">Links</span>
-      <div>
-        <i v-for="platform in Object.keys(theme.personalLinks)" :class="['fas','fa-'+platform]"></i>
+      <div class="flex flex-row">
+        <IconoirProvider
+            :icon-props="{
+              'color': '#000000',
+              'stroke-width': 1,
+              'width': '2em',
+              'height': '2em',
+            }">
+          <a :href="theme.personalLinks.github" v-if="theme.personalLinks.github"><Github class="m-2 hover:scale-110 transition-all duration-500"/></a>
+          <a :href="theme.personalLinks.twitter" v-if="theme.personalLinks.twitter"><Twitter class="m-2 hover:scale-110 transition-all duration-500"/></a>
+          <a :href="theme.personalLinks.email" v-if="theme.personalLinks.email"><Mail class="m-2 hover:scale-110 transition-all duration-500"/></a>
+        </IconoirProvider>
       </div>
     </div>
   </footer>
