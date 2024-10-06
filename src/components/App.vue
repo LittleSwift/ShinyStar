@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {config, theme} from "@/config";
-import { IconoirProvider, Github, Twitter, Mail } from '@iconoir/vue';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 </script>
 
 <template>
@@ -19,17 +19,7 @@ import { IconoirProvider, Github, Twitter, Mail } from '@iconoir/vue';
     <div class="flex flex-col m-8">
       <span class="text-2xl">Links</span>
       <div class="flex flex-row">
-        <IconoirProvider
-            :icon-props="{
-              'color': '#000000',
-              'stroke-width': 1,
-              'width': '2em',
-              'height': '2em',
-            }">
-          <a :href="theme.personalLinks.github" v-if="theme.personalLinks.github"><Github class="m-2 hover:scale-110 transition-all duration-500"/></a>
-          <a :href="theme.personalLinks.twitter" v-if="theme.personalLinks.twitter"><Twitter class="m-2 hover:scale-110 transition-all duration-500"/></a>
-          <a :href="theme.personalLinks.email" v-if="theme.personalLinks.email"><Mail class="m-2 hover:scale-110 transition-all duration-500"/></a>
-        </IconoirProvider>
+        <a v-for="platform in Object.keys(theme.personalLinks)" :href="theme.personalLinks[platform]" class="m-2 hover:scale-110 transition-all duration-500"><i :class="['fab', 'fa-2x', 'fa-'+platform]"></i></a>
       </div>
     </div>
   </footer>
