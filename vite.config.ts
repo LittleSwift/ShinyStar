@@ -25,7 +25,7 @@ export default defineConfig({
       output: {
         entryFileNames: 'js/main.js',
         chunkFileNames: 'js/[name].js',
-        assetFileNames: 'css/[name][extname]',
+        assetFileNames: 'public/[name][extname]',
       }
     },
     outDir: resolve(__dirname, 'source'),

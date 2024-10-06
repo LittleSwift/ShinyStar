@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'DongQingHeiTi';
-    src: url('/public/font/DongQIngHeiTi.otf') format('opentype');
+    src: url('./DongQingHeiTi.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }

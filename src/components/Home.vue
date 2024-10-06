@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {config, site} from "../config.ts";
 import ArticleDisplay from "./ArticleDisplay.vue";
-console.log(site);
 </script>
 
 <template>
