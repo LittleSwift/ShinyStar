@@ -26,7 +26,10 @@ export default defineConfig({
         entryFileNames: 'js/main.js',
         chunkFileNames: 'js/[name].js',
         assetFileNames: 'public/[name][extname]',
-      }
+      },
+      external: [
+        "@fortawesome/fontawesome-free",
+      ]
     },
     outDir: resolve(__dirname, 'source'),
     emptyOutDir: true,

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import {config, theme} from "../config";
 </script>
 
 <template>
@@ -9,6 +10,19 @@
     <router-link class="w-24 h-full inline-block text-center content-center bg-black bg-opacity-0 hover:bg-opacity-25 hover:text-[1.1em] transition-all duration-500" to="/articles">Articles</router-link>
   </header>
   <router-view></router-view>
+  <footer class="w-full h-32 flex bg-amber-100">
+    <div class="flex flex-col m-8">
+      <span>{{config.title}}</span>
+      <span>by {{config.author}}</span>
+      <span>Using <a class="underline" href="https://hexo.io/">Hexo</a> and <a class="underline" href="https://github.com/LittleSwift/ShinyStar">ShinyStar</a> theme</span>
+    </div>
+    <div class="flex flex-col m-8">
+      <span class="text-2xl">Links</span>
+      <div>
+        <i v-for="platform in Object.keys(theme.personalLinks)" :class="['fas','fa-'+platform]"></i>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style scoped>

@@ -74,6 +74,12 @@ export type HexoSite = {
   pages: {data:HexoPage[]};
 };
 
+export type HexoTheme = {
+  personalLinks: {
+    [key: string]: string
+  };
+}
 
-export const config:HexoConfig = window.__hexoConfig ?? {};
-export const site:HexoSite = window.__hexoSite ?? {};
+export const config:HexoConfig = window.__hexoConfig;
+export const site:HexoSite = window.__hexoSite;
+export const theme:HexoTheme = window.__hexoTheme;
