@@ -10,5 +10,9 @@
 }
 
 * {
-    font-family: 'DongQingHeiTi', -apple-system, 'Courier New', Courier, system-ui, monospace;
+    font-family: 'DongQingHeiTi', -apple-system, system-ui;
+}
+
+.link {
+    text-decoration: underline;
 }

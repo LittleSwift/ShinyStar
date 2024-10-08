@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {HexoPost} from "../config.ts";
+import {HexoPost} from "@/config.ts";
 
 let { post } = defineProps<{post:HexoPost}>();
 
@@ -26,16 +26,21 @@ const prefixedHtml = addPrefixToIds(post.content, "shinystarlink" + post.title);
 </script>
 
 <template>
-  <p class="m-5 display" @click="handleClick" v-html="prefixedHtml"></p>
+  <p class="display" @click="handleClick" v-html="prefixedHtml"></p>
 </template>
 
 <style scoped>
+.display {
+  margin: 1.25rem;
+}
+
 .display >>> strong {
   font-weight: bold;
 }
 .display >>> h3 {
-  font-size: 2em;
+  font-size: 2rem;
   cursor: pointer;
+  scroll-margin-top: 4rem;
 }
 .display >>> h3:hover::before {
   content: "#";

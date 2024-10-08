@@ -4,34 +4,125 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 </script>
 
 <template>
-  <header class="hidden sm:flex bg-black bg-opacity-25 h-12 fixed w-full text-white z-50">
-    <RouterLink class="w-24 h-full inline-block text-center content-center bg-black bg-opacity-0 hover:bg-opacity-25 hover:text-[1.1em] transition-all duration-500" to="/">Home</RouterLink>
-    <RouterLink class="w-24 h-full inline-block text-center content-center bg-black bg-opacity-0 hover:bg-opacity-25 hover:text-[1.1em] transition-all duration-500" to="/about">About</RouterLink>
-    <RouterLink class="w-24 h-full inline-block text-center content-center bg-black bg-opacity-0 hover:bg-opacity-25 hover:text-[1.1em] transition-all duration-500" to="/articles">Articles</RouterLink>
+  <header class="header">
+    <RouterLink class="headerLink" to="/">Home</RouterLink>
+    <RouterLink class="headerLink" to="/about">About</RouterLink>
+    <RouterLink class="headerLink" to="/articles">Articles</RouterLink>
   </header>
-  <header class="flex sm:hidden bg-amber-100 h-12 fixed w-full text-black z-50 shadow-2xl">
-    <button class="absolute">
-      <i class="fa fa-xl fa-bars m-6"></i>
+  <header class="mobileHeader">
+    <button class="mobileMenuButton">
+      <i class="mobileMenuButtonIcon fa fa-xl fa-bars"></i>
     </button>
-    <span class="w-full text-center font-bold m-3">
+    <span class="mobileTitle">
       {{config.title}}
     </span>
   </header>
   <RouterView></RouterView>
-  <footer class="w-full h-32 flex bg-amber-100">
-    <div class="flex flex-col m-8">
+  <footer class="footer">
+    <div class="footerInfo">
       <span>{{config.title}}</span>
       <span>by {{config.author}}</span>
-      <span>Using <a class="underline" href="https://hexo.io/">Hexo</a> and <a class="underline" href="https://github.com/LittleSwift/ShinyStar">ShinyStar</a> theme</span>
+      <span>Using <a class="link" href="https://hexo.io/">Hexo</a> and <a class="link" href="https://github.com/LittleSwift/ShinyStar">ShinyStar</a> theme</span>
     </div>
-    <div class="hidden flex-col m-8 md:flex">
-      <span class="text-2xl">Links</span>
-      <div class="flex flex-row">
-        <a v-for="platform in Object.keys(theme.personalLinks)" :href="theme.personalLinks[platform]" class="m-2 hover:scale-110 transition-all duration-500"><i :class="['fab', 'fa-2x', 'fa-'+platform]"></i></a>
+    <div class="footerLinks">
+      <span class="footerTitle">Links</span>
+      <div class="footerLinkList">
+        <a v-for="platform in Object.keys(theme.personalLinks)" :href="theme.personalLinks[platform]" class="footerLinkSingleIcon"><i :class="['fab', 'fa-2x', 'fa-'+platform]"></i></a>
       </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
+.header{
+  display: none;
+  background-color: rgba(0,0,0,0.25);
+  height: 3rem;
+  position: fixed;
+  width: 100%;
+  color: white;
+  z-index: 50;
+}
+.headerLink{
+  width: 6rem;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  align-content: center;
+  background-color: transparent;
+  transition: all;
+  transition-duration: 0.5s;
+}
+.headerLink:hover{
+  background-color: rgba(0,0,0,0.25);
+  font-size: 1.1rem;
+}
+.mobileHeader{
+  display: flex;
+  background-color: rgb(254,243,199);
+  height: 3rem;
+  position: fixed;
+  width: 100%;
+  color: black;
+  z-index: 50;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+.mobileMenuButton{
+  position: absolute;
+}
+.mobileMenuButtonIcon{
+  margin: 1.5rem;
+}
+.mobileTitle{
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  margin: 0.75rem;
+}
+@media (min-width: 640px) {
+  .header{
+    display: flex;
+  }
+  .mobileHeader{
+    display: none;
+  }
+}
+.footer{
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  background-color: rgb(254,243,199);
+}
+.footerInfo{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+}
+.footerLinks{
+  display: none;
+  flex-direction: column;
+  margin: 2rem;
+}
+.footerTitle{
+  font-size: 2rem;
+}
+.footerLinkList{
+  display: flex;
+  flex-direction: row;
+}
+.footerLinkSingleIcon{
+  margin: 0.5rem;
+  transition: all;
+  transition-duration: 0.5s;
+}
+.footerLinkSingleIcon:hover{
+  scale: 1.1;
+}
+@media (min-width: 640px) {
+  .footerLinks{
+    display: flex;
+  }
+}
+
+
 </style>
