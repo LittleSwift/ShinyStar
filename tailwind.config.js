@@ -4,6 +4,9 @@ export default {
   purge: ['./src/**/*.{vue,js,ts}'],
   theme: {
     extend: {
+      spacing: {
+        '240': '60rem',
+      },
       backgroundImage: {
         'background': "linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(255,251,235,1) 100%), url('/img/background.jpg')",
       },
