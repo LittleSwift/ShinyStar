@@ -43,11 +43,18 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   font-size: 3rem;
   font-family: "Songti SC",system-ui;
   text-align: center;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-name: fadeInTop;
 }
 .mainTitleUrl {
   font-size: 2rem;
   font-family: "Songti SC",system-ui;
   text-align: center;
+  animation-delay: 1.5s;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-name: fadeInTop;
 }
 
 @media (min-width: 640px) {

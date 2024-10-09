@@ -25,7 +25,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
       <span>Using <a class="link" href="https://hexo.io/">Hexo</a> and <a class="link" href="https://github.com/LittleSwift/ShinyStar">ShinyStar</a> theme</span>
     </div>
     <div class="footerLinks">
-      <span class="footerTitle">Links</span>
+      <span class="footerLinkTitle">Links</span>
       <div class="footerLinkList">
         <a v-for="platform in Object.keys(theme.personalLinks)" :href="theme.personalLinks[platform]" class="footerLinkSingleIcon"><i :class="['fab', 'fa-2x', 'fa-'+platform]"></i></a>
       </div>
@@ -40,7 +40,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   height: 3rem;
   position: fixed;
   width: 100%;
-  color: white;
   z-index: 50;
 }
 .headerLink{
@@ -52,6 +51,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   background-color: transparent;
   transition: all;
   transition-duration: 0.5s;
+  color: white;
 }
 .headerLink:hover{
   background-color: rgba(0,0,0,0.25);
@@ -103,8 +103,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   flex-direction: column;
   margin: 2rem;
 }
-.footerTitle{
-  font-size: 2rem;
+.footerLinkTitle{
+  font-size: 1.5rem;
 }
 .footerLinkList{
   display: flex;

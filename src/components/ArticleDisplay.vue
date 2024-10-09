@@ -37,10 +37,14 @@ const prefixedHtml = addPrefixToIds(post.content, "shinystarlink" + post.title);
 .display >>> strong {
   font-weight: bold;
 }
+.display >>> a {
+  text-decoration: underline;
+}
 .display >>> h3 {
   font-size: 2rem;
   cursor: pointer;
   scroll-margin-top: 4rem;
+  margin: 0;
 }
 .display >>> h3:hover::before {
   content: "#";
@@ -48,9 +52,11 @@ const prefixedHtml = addPrefixToIds(post.content, "shinystarlink" + post.title);
 }
 .display >>> ol {
   list-style: decimal outside none;
+  padding-left: 0;
 }
 .display >>> ul {
   list-style: disc outside none;
+  padding-left: 0;
 }
 .display >>> li {
   margin-inline-start: 1.25em;
