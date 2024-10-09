@@ -65,7 +65,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   width: 100%;
   color: black;
   z-index: 50;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
 }
 .mobileMenuButton{
   position: absolute;
