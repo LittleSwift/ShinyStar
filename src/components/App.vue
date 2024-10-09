@@ -5,9 +5,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 <template>
   <header class="header">
-    <RouterLink class="headerLink" to="/">Home</RouterLink>
-    <RouterLink class="headerLink" to="/about">About</RouterLink>
-    <RouterLink class="headerLink" to="/articles">Articles</RouterLink>
+    <RouterLink class="headerLink" to="/"><span>Home</span></RouterLink>
+    <RouterLink class="headerLink" to="/about"><span>About</span></RouterLink>
+    <RouterLink class="headerLink" to="/articles"><span>Articles</span></RouterLink>
   </header>
   <header class="mobileHeader">
     <button class="mobileMenuButton">
@@ -49,13 +49,22 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   text-align: center;
   align-content: center;
   background-color: transparent;
-  transition: all;
+  transition: all ease;
   transition-duration: 0.5s;
   color: white;
+  will-change: transform;
 }
 .headerLink:hover{
   background-color: rgba(0,0,0,0.25);
-  font-size: 1.1rem;
+}
+.headerLink>span{
+  display: inline-block;
+  transition: all;
+  transition-duration: 0.5s;
+  will-change: transform;
+}
+.headerLink:hover>span{
+  transform: scale(1.1);
 }
 .mobileHeader{
   display: flex;
