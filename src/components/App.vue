@@ -36,7 +36,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 <style scoped>
 .header{
   display: none;
-  background-color: rgba(0,0,0,0.1);
+  background-color: var(--header-color);
   height: 3rem;
   position: fixed;
   width: 100%;
@@ -56,7 +56,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   will-change: transform;
 }
 .headerLink:hover{
-  background-color: rgba(0,0,0,0.1);
+  background-color: var(--header-color);
 }
 .headerLink>span{
   display: inline-block;
@@ -69,13 +69,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 }
 .mobileHeader{
   display: flex;
-  background-color: rgb(254,243,199);
+  background-color: var(--background-color);
   height: 3rem;
   position: fixed;
   width: 100%;
   color: black;
   z-index: 50;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+  box-shadow: 0 25px 50px -12px var(--shadow-color);
 }
 .mobileMenuButton{
   position: absolute;

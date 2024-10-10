@@ -30,3 +30,11 @@ button {
 .link {
     text-decoration: underline;
 }
+
+* {
+    --background-color: rgb(255,251,235);
+    --card-color: rgba(127,127,127,0.05);
+    --shadow-color: rgba(0,0,0,0.1);
+    --shadow-color-hover: rgba(0,0,0,0.2);
+    --header-color: rgba(0,0,0,0.1);
+}

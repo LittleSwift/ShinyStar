@@ -27,7 +27,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(255,251,235,1) 100%), url('/img/background.jpg');
+  background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, var(--background-color) 100%), url('/img/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -77,7 +77,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(255,251,235);
+  background-color: var(--background-color);
   padding: 5rem 1.25rem;
 }
 
@@ -87,7 +87,14 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   position: relative;
   border-radius: 1rem;
   padding: 1.25rem;
-  background-color: rgba(0,0,0,0.1);
+  background-color: var(--card-color);
+  box-shadow: 0 0 1rem var(--shadow-color);
+  transition: all 0.5s;
+}
+
+.postCard:hover {
+  scale: 1.02;
+  box-shadow: 0 0 1rem var(--shadow-color-hover);
 }
 
 .postContent {

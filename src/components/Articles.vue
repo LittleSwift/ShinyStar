@@ -22,7 +22,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(255,251,235);
+  background-color: var(--background-color);
   padding: 5rem 1.25rem;
   min-height: calc(100vh - 8rem);
 }
@@ -34,7 +34,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   position: relative;
   border-radius: 1rem;
   padding: 1.25rem;
-  background-color: rgba(0,0,0,0.1);
+  background-color: var(--card-color);
 }
 
 .postContent {
@@ -69,7 +69,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   transition-duration: 0.5s;
 }
 .postOpen:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: var(--card-color);
 }
 
 @media (min-width: 1024px) {
