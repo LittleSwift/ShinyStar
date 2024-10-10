@@ -36,11 +36,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 <style scoped>
 .header{
   display: none;
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0,0,0,0.1);
   height: 3rem;
   position: fixed;
   width: 100%;
   z-index: 50;
+  backdrop-filter: blur(0.5rem);
 }
 .headerLink{
   width: 6rem;
@@ -55,7 +56,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   will-change: transform;
 }
 .headerLink:hover{
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0,0,0,0.1);
 }
 .headerLink>span{
   display: inline-block;

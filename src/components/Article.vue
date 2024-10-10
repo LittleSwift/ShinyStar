@@ -27,6 +27,7 @@ const post = site.posts.data.find(post => post.title == useRoute().params.title)
   flex-direction: column;
   background-color: rgb(255,251,235);
   padding: 5rem 1.25rem;
+  min-height: calc(100vh - 8rem);
 }
 
 .postContent {
