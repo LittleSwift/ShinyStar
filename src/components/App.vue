@@ -52,7 +52,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   background-color: transparent;
   transition: all ease;
   transition-duration: 0.5s;
-  color: white;
+  color: var(--light-text-color);
   will-change: transform;
 }
 .headerLink:hover{
@@ -73,12 +73,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   height: 3rem;
   position: fixed;
   width: 100%;
-  color: black;
+  color: var(--text-color);
   z-index: 50;
   box-shadow: 0 25px 50px -12px var(--shadow-color);
 }
 .mobileMenuButton{
   position: absolute;
+  color: var(--text-color);
 }
 .mobileMenuButtonIcon{
   margin: 1.5rem;
@@ -101,7 +102,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   width: 100%;
   height: 8rem;
   display: flex;
-  background-color: rgb(254,243,199);
+  background-color: var(--footer-color);
 }
 .footerInfo{
   display: flex;

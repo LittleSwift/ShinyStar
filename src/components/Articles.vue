@@ -18,42 +18,10 @@ import ArticleDisplay from "./ArticleDisplay.vue";
 </template>
 
 <style scoped>
-.postArea {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background-color);
-  padding: 5rem 1.25rem;
-  min-height: calc(100vh - 8rem);
-}
-
-.postCard {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  background-color: var(--card-color);
-}
 
 .postContent {
-  width: 100%;
   max-height: 16rem;
   overflow: hidden;
-}
-
-.postTitle {
-  position: relative;
-  margin: 1.25rem;
-  font-size: 3rem;
-  font-weight: bolder;
-  transition: all;
-  transition-duration: 0.5s;
-}
-
-.postTitle:hover {
-  margin-left: 1.75rem;
 }
 
 .postOpenLink {
@@ -67,18 +35,11 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   border: darkgray 1px solid;
   transition: all;
   transition-duration: 0.5s;
+  cursor: pointer;
+  color: var(--text-color);
 }
 .postOpen:hover {
-  background-color: var(--card-color);
-}
-
-@media (min-width: 1024px) {
-  .postArea {
-    padding: 5rem calc((100% - 60rem) / 2);
-  }
-  .postCard {
-    max-width: 60rem;
-  }
+  background-color: var(--focus-color);
 }
 
 </style>

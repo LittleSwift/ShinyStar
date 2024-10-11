@@ -27,11 +27,11 @@ import ArticleDisplay from "./ArticleDisplay.vue";
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, var(--background-color) 100%), url('/img/background.jpg');
+  background-image: var(--home-background-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: white;
+  color: var(--light-text-color);
 }
 
 .mainTitle {
@@ -74,53 +74,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
 }
 
 .postArea {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background-color);
-  padding: 5rem 1.25rem;
-}
-
-.postCard {
-  width: 100%;
-  display: flex;
-  position: relative;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  background-color: var(--card-color);
-  box-shadow: 0 0 1rem var(--shadow-color);
-  transition: all 0.5s;
-}
-
-.postCard:hover {
-  scale: 1.02;
-  box-shadow: 0 0 1rem var(--shadow-color-hover);
-}
-
-.postContent {
-  width: 100%;
-}
-
-.postTitle {
-  position: relative;
-  margin: 1.25rem;
-  font-size: 3rem;
-  font-weight: bolder;
-  transition: all;
-  transition-duration: 0.5s;
-}
-
-.postTitle:hover {
-  margin-left: 1.75rem;
-}
-
-@media (min-width: 1024px) {
-  .postArea {
-    padding: 5rem calc((100% - 60rem) / 2);
-  }
-  .postCard {
-    max-width: 60rem;
-  }
+  min-height: 0;
 }
 
 </style>

@@ -1,4 +1,5 @@
 @import url(./animation.css);
+@import url(./content.css);
 @font-face {
     font-family: 'DongQingHeiTi';
     src: url('./DongQingHeiTi.otf') format('opentype');
@@ -7,17 +8,18 @@
 }
 
 * {
-    font-family: 'DongQingHeiTi', -apple-system, system-ui;
+    font-family: 'DongQingHeiTi', Arial, sans-serif;
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
     overscroll-behavior: none;
+    color: var(--text-color);
 }
 
 a {
-    color: black;
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -31,10 +33,29 @@ button {
     text-decoration: underline;
 }
 
-* {
+html {
     --background-color: rgb(255,251,235);
     --card-color: rgba(127,127,127,0.05);
+    --focus-color: rgba(127,127,127,0.1);
     --shadow-color: rgba(0,0,0,0.1);
     --shadow-color-hover: rgba(0,0,0,0.2);
     --header-color: rgba(0,0,0,0.1);
+    --footer-color: rgb(254,243,199);
+    --text-color: rgb(0,0,0);
+    --light-text-color: rgb(255,255,255);
+    --home-background-image: linear-gradient(180deg, rgba(63,63,63,0.2) 50%, var(--background-color) 100%), url('/public/img/background.jpg');
+}
+@media (prefers-color-scheme: dark) {
+    html {
+        --background-color: rgb(15,23,42);
+        --card-color: rgba(127,127,127,0.05);
+        --focus-color: rgba(127,127,127,0.1);
+        --shadow-color: rgba(127,127,127,0.1);
+        --shadow-color-hover: rgba(255,255,255,0.2);
+        --header-color: rgba(255,255,255,0.1);
+        --footer-color: rgb(51,65,85);
+        --text-color: rgb(214,211,209);
+        --light-text-color: rgb(214,211,209);
+        --home-background-image: linear-gradient(180deg, rgba(63,63,63,0.4) 50%, var(--background-color) 100%), url('/public/img/background.jpg');
+    }
 }
