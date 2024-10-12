@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {HexoPost} from "@/config.ts";
+import {HexoPost} from "~/config.ts";
 
 let { post } = defineProps<{post:HexoPost}>();
 

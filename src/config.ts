@@ -49,17 +49,28 @@ export interface HexoConfig {
 }
 
 export type HexoPost = {
-  title: string;
-  slug: string;
-  date: Date;
-  updated?: Date;
-  comments?: boolean;
-  layout?: string;
-  content: string;
-  excerpt?: string;
-  categories?: string[];
-  tags?: string[];
-  permalink: string;
+  asset_dir:string,
+  categories:{data:string[],length:number},
+  comments:boolean,
+  content:string,
+  date:string,
+  excerpt:string,
+  full_source:string,
+  layout:string,
+  more:string,
+  path:string,
+  permalink:string,
+  photos:string[],
+  published:boolean,
+  raw:string,
+  slug:string,
+  source:string
+  tags:{data:string[],length:number},
+  title:string,
+  updated:string,
+  __post:boolean,
+  _content:string,
+  _id:string,
 };
 
 export type HexoPage = {

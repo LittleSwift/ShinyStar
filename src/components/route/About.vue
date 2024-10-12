@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import ArticleDisplay from "~/components/ArticleDisplay.vue";
+import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
 import {site} from "~/config";
 const post = site.pages.data.find((page)=>page.title=="about");
 </script>

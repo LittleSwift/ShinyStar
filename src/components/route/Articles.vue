@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {config, site} from "@/config";
-import ArticleDisplay from "./ArticleDisplay.vue";
+import {config, site} from "~/config";
+import ArticleDisplay from "../widget/ArticleDisplay.vue";
 </script>
 
 <template>

@@ -35,6 +35,7 @@ button {
 
 html {
     --background-color: rgb(255,251,235);
+    --backdrop-color: rgba(0,0,0,0.3);
     --card-color: rgba(127,127,127,0.05);
     --focus-color: rgba(127,127,127,0.1);
     --shadow-color: rgba(0,0,0,0.1);
@@ -48,6 +49,7 @@ html {
 @media (prefers-color-scheme: dark) {
     html {
         --background-color: rgb(15,23,42);
+        --backdrop-color: rgba(63,63,63,0.5);
         --card-color: rgba(127,127,127,0.05);
         --focus-color: rgba(127,127,127,0.1);
         --shadow-color: rgba(127,127,127,0.1);

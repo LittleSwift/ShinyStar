@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {config, site} from "~/config";
-import ArticleDisplay from "~/components/ArticleDisplay.vue";
+import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
 import {useRoute} from "vue-router";
 
 const post = site.posts.data.find(post => post.title == useRoute().params.title);

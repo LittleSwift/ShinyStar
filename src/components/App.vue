@@ -1,26 +1,11 @@
 <script setup lang="ts">
-import {config, site, theme} from "@/config";
+import {config, theme} from "@/config";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Fuse from "fuse.js";
-import TinySegmenter from "tiny-segmenter";
 import {ref} from "vue";
-const options = {
-  keys: ["title", "raw"],
-  threshold: 0.3,
-};
-const fuse = new Fuse(site.posts.data, options);
-const segmenter = new TinySegmenter();
-let filteredArticles = ref(site.posts.data);
-function search() {
-  if (searchText.value.trim() === "") {
-    filteredArticles.value = site.posts.data;
-  } else {
-    const segmentedQuery = segmenter.segment(searchText.value).join(" ");
-    const result = fuse.search(segmentedQuery);
-    filteredArticles.value = result.map((r) => r.item);
-  }
-}
-let searchText = ref("");
+import {useRouter} from "vue-router";
+import Modal from "~/components/widget/Modal.vue";
+const searchText = ref("");
+const settingsOpen = ref(false);
 </script>
 
 <template>
@@ -30,7 +15,10 @@ let searchText = ref("");
     <RouterLink class="headerLink" to="/articles"><span>Articles</span></RouterLink>
     <div class="searchContainer">
       <input type="text" class="searchInput" v-model="searchText"/>
-      <i class="fa fa-xl fa-search searchIcon" @click="search();console.log(filteredArticles)"></i>
+      <RouterLink :to="'/search?q='+encodeURIComponent(searchText)"><i class="fa fa-xl fa-search searchIcon"></i></RouterLink>
+    </div>
+    <div class="settingsContainer" @click="settingsOpen = true">
+      <i class="fa fa-xl fa-cog settingsIcon"></i>
     </div>
   </header>
   <header class="mobileHeader">
@@ -55,6 +43,35 @@ let searchText = ref("");
       </div>
     </div>
   </footer>
+  <Modal v-if="settingsOpen" size="large" @close="settingsOpen = false">
+<h2>什么是小鱼干？</h2>
+<p>小鱼干，又称小鱼干燥品，是由新鲜的小鱼经过精心处理后制作而成的美味小吃。它以独特的鲜香味和脆嫩的口感，深受各年龄层的喜爱。</p>
+
+<h2>制作过程</h2>
+<p>小鱼干的制作过程包括几个重要步骤：</p>
+<ul>
+    <li><strong>捕捞：</strong>新鲜的小鱼被捕捞上岸。</li>
+    <li><strong>清洗：</strong>对小鱼进行严格清洗，去除杂质。</li>
+    <li><strong>腌制：</strong>将小鱼用盐腌制，以去除水分并增加风味。</li>
+    <li><strong>干燥：</strong>通过阳光晾晒或现代设备进行烘干，直至水分降至较低水平。</li>
+</ul>
+
+<h2>营养价值</h2>
+<p>小鱼干不仅美味可口，还富含优质蛋白质、微量元素以及丰富的Omega-3脂肪酸，对心脑健康大有裨益。它是一种低脂、营养丰富的健康小吃，特别适合注重健康饮食的人士。</p>
+
+<h2>多样化食用方式</h2>
+<p>小鱼干的食用方式非常多样化：</p>
+<ul>
+    <li>可以直接作为零食享用，口感鲜香。</li>
+    <li>加入米饭、粥或汤中，增添风味。</li>
+    <li>还可以用来制作炒菜、炖汤，甚至加入沙拉中。</li>
+</ul>
+
+<p>无论是在街边的小吃摊，还是在高档餐厅，小鱼干总能找到它的身影，成为一道美味的风景线。</p>
+
+<h2>结语</h2>
+<p>希望通过今天的介绍，对小鱼干有了更深入的了解，期待在品尝这道美味小吃时，能够享受到它带来的独特风味与健康益处！</p>
+  </Modal>
 </template>
 
 <style scoped>
@@ -93,6 +110,7 @@ let searchText = ref("");
   transform: scale(1.1);
 }
 .searchContainer{
+  position: relative;
   margin-left: auto;
   margin-right: 0;
   text-align: right;
@@ -133,6 +151,26 @@ let searchText = ref("");
   outline: none;
   opacity: 0;
   padding: 0.5rem;
+}
+.settingsContainer{
+  position: relative;
+}
+.settingsIcon{
+  color: var(--light-text-color);
+  transition: all;
+  transition-duration: 0.5s;
+  text-align: center;
+  align-content: center;
+  height: 100%;
+  width: 3rem;
+  right: 0;
+  z-index: 5;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.settingsIcon:hover{
+  opacity: 1;
+  transform: rotate(180deg);
 }
 .mobileHeader{
   display: flex;
