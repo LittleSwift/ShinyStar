@@ -5,8 +5,10 @@ import ArticleDisplay from "./ArticleDisplay.vue";
 
 <template>
   <div>
-    <div class="postArea" v-for="post in site.posts.data">
-      <div class="postCard">
+    <div class="postArea">
+      <span class="path"><RouterLink to="/">首页</RouterLink>/文章列表</span>
+      <h1 class="pageTitle">文章列表</h1>
+      <div class="postCard" v-for="post in site.posts.data">
         <div class="postContent">
           <RouterLink :to="post.permalink.split(config.url)[1]"><h2 class="postTitle">{{post.title}}</h2></RouterLink>
           <ArticleDisplay :post="post"></ArticleDisplay>
@@ -21,7 +23,7 @@ import ArticleDisplay from "./ArticleDisplay.vue";
 
 .postContent {
   max-height: 16rem;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .postOpenLink {

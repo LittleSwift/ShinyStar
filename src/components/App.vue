@@ -1,6 +1,26 @@
 <script setup lang="ts">
-import {config, theme} from "@/config";
+import {config, site, theme} from "@/config";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Fuse from "fuse.js";
+import TinySegmenter from "tiny-segmenter";
+import {ref} from "vue";
+const options = {
+  keys: ["title", "raw"],
+  threshold: 0.3,
+};
+const fuse = new Fuse(site.posts.data, options);
+const segmenter = new TinySegmenter();
+let filteredArticles = ref(site.posts.data);
+function search() {
+  if (searchText.value.trim() === "") {
+    filteredArticles.value = site.posts.data;
+  } else {
+    const segmentedQuery = segmenter.segment(searchText.value).join(" ");
+    const result = fuse.search(segmentedQuery);
+    filteredArticles.value = result.map((r) => r.item);
+  }
+}
+let searchText = ref("");
 </script>
 
 <template>
@@ -8,6 +28,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
     <RouterLink class="headerLink" to="/"><span>Home</span></RouterLink>
     <RouterLink class="headerLink" to="/about"><span>About</span></RouterLink>
     <RouterLink class="headerLink" to="/articles"><span>Articles</span></RouterLink>
+    <div class="searchContainer">
+      <input type="text" class="searchInput" v-model="searchText"/>
+      <i class="fa fa-xl fa-search searchIcon" @click="search();console.log(filteredArticles)"></i>
+    </div>
   </header>
   <header class="mobileHeader">
     <button class="mobileMenuButton">
@@ -54,6 +78,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
   transition-duration: 0.5s;
   color: var(--light-text-color);
   will-change: transform;
+  font-weight: bold;
 }
 .headerLink:hover{
   background-color: var(--header-color);
@@ -66,6 +91,48 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 }
 .headerLink:hover>span{
   transform: scale(1.1);
+}
+.searchContainer{
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+.searchContainer:hover .searchInput, .searchInput:focus-visible{
+  width: 18rem;
+  opacity: 1;
+}
+.searchContainer:hover .searchIcon, .searchInput:focus-visible~.searchIcon{
+  opacity: 1;
+  scale: 0.8;
+}
+.searchIcon{
+  position: absolute;
+  color: var(--light-text-color);
+  transition: all;
+  transition-duration: 0.5s;
+  text-align: center;
+  align-content: center;
+  height: 100%;
+  width: 4rem;
+  right: 0;
+  z-index: 5;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.searchInput{
+  position: relative;
+  width: 0;
+  transition: all;
+  transition-duration: 0.5s;
+  background-color: var(--header-color);
+  border: var(--light-text-color) 2px solid;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  margin: 0.25rem;
+  color: var(--light-text-color);
+  outline: none;
+  opacity: 0;
+  padding: 0.5rem;
 }
 .mobileHeader{
   display: flex;

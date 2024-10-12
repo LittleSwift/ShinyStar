@@ -39,7 +39,7 @@ html {
     --focus-color: rgba(127,127,127,0.1);
     --shadow-color: rgba(0,0,0,0.1);
     --shadow-color-hover: rgba(0,0,0,0.2);
-    --header-color: rgba(0,0,0,0.1);
+    --header-color: rgba(0,0,0,0.15);
     --footer-color: rgb(254,243,199);
     --text-color: rgb(0,0,0);
     --light-text-color: rgb(255,255,255);

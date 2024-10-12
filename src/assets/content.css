@@ -43,15 +43,15 @@
 
 @media (min-width: 1024px) {
     .postArea {
-        padding: 5rem calc((100% - 60rem) / 2);
+        padding: 5rem 10rem;
     }
     .postCard {
-        max-width: 60rem;
+        width: 100%;
     }
 }
 
 .path {
-    margin: 1.25rem;
+    margin: 0 1.25rem;
     color: darkgray;
     font-style: italic;
 }
@@ -62,4 +62,9 @@
 
 .path > a:hover{
     text-decoration: underline;
+}
+
+.pageTitle {
+    font-size: 2rem;
+    margin-bottom: 3rem;
 }
