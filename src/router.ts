@@ -3,7 +3,7 @@ import Home from './components/route/Home.vue';
 import About from './components/route/About.vue';
 import Articles from "./components/route/Articles.vue";
 import Article from "./components/route/Article.vue";
-import {config} from "./config.ts";
+import {config} from "./config";
 import Search from "~/components/route/Search.vue";
 
 const routes = [

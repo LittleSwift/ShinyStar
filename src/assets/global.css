@@ -33,11 +33,16 @@ button {
     text-decoration: underline;
 }
 
-html {
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+body.light {
     --background-color: rgb(255,251,235);
     --backdrop-color: rgba(0,0,0,0.3);
     --card-color: rgba(127,127,127,0.05);
     --focus-color: rgba(127,127,127,0.1);
+    --input-color: rgba(0,0,0,0.1);
     --shadow-color: rgba(0,0,0,0.1);
     --shadow-color-hover: rgba(0,0,0,0.2);
     --header-color: rgba(0,0,0,0.15);
@@ -46,18 +51,17 @@ html {
     --light-text-color: rgb(255,255,255);
     --home-background-image: linear-gradient(180deg, rgba(63,63,63,0.2) 50%, var(--background-color) 100%), url('/public/img/background.jpg');
 }
-@media (prefers-color-scheme: dark) {
-    html {
-        --background-color: rgb(15,23,42);
-        --backdrop-color: rgba(63,63,63,0.5);
-        --card-color: rgba(127,127,127,0.05);
-        --focus-color: rgba(127,127,127,0.1);
-        --shadow-color: rgba(127,127,127,0.1);
-        --shadow-color-hover: rgba(255,255,255,0.2);
-        --header-color: rgba(255,255,255,0.1);
-        --footer-color: rgb(51,65,85);
-        --text-color: rgb(214,211,209);
-        --light-text-color: rgb(214,211,209);
-        --home-background-image: linear-gradient(180deg, rgba(63,63,63,0.4) 50%, var(--background-color) 100%), url('/public/img/background.jpg');
-    }
+body.dark {
+    --background-color: rgb(15,23,42);
+    --backdrop-color: rgba(63,63,63,0.5);
+    --card-color: rgba(127,127,127,0.05);
+    --focus-color: rgba(127,127,127,0.1);
+    --input-color: rgba(127,127,127,0.1);
+    --shadow-color: rgba(127,127,127,0.1);
+    --shadow-color-hover: rgba(255,255,255,0.2);
+    --header-color: rgba(255,255,255,0.1);
+    --footer-color: rgb(51,65,85);
+    --text-color: rgb(214,211,209);
+    --light-text-color: rgb(214,211,209);
+    --home-background-image: linear-gradient(180deg, rgba(63,63,63,0.4) 50%, var(--background-color) 100%), url('/public/img/background.jpg');
 }

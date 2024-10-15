@@ -1,11 +1,43 @@
 <script setup lang="ts">
 import {config, theme} from "@/config";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import {ref} from "vue";
-import {useRouter} from "vue-router";
+import {Ref, ref} from "vue";
 import Modal from "~/components/widget/Modal.vue";
+import {useTheme} from "~/theme";
+import TabsWidget from "~/components/widget/tabs/TabsWidget.vue";
+import {Tabs} from "~/tabs";
 const searchText = ref("");
 const settingsOpen = ref(false);
+const currentTheme = useTheme();
+const settingsMenu:Tabs = [
+  {
+    name:'外观',
+    items:[
+      {
+        type: 'text',
+        text: '主题    ',
+        append: {
+          type: 'dropdown',
+          options: [
+            {
+              key: 'system',
+              text: '系统'
+            },
+            {
+              key: 'light',
+              text: '亮色'
+            },
+            {
+              key: 'dark',
+              text: '暗色'
+            },
+          ],
+          value: currentTheme
+        },
+      }
+    ]
+  }
+];
 </script>
 
 <template>
@@ -44,33 +76,7 @@ const settingsOpen = ref(false);
     </div>
   </footer>
   <Modal v-if="settingsOpen" size="large" @close="settingsOpen = false">
-<h2>什么是小鱼干？</h2>
-<p>小鱼干，又称小鱼干燥品，是由新鲜的小鱼经过精心处理后制作而成的美味小吃。它以独特的鲜香味和脆嫩的口感，深受各年龄层的喜爱。</p>
-
-<h2>制作过程</h2>
-<p>小鱼干的制作过程包括几个重要步骤：</p>
-<ul>
-    <li><strong>捕捞：</strong>新鲜的小鱼被捕捞上岸。</li>
-    <li><strong>清洗：</strong>对小鱼进行严格清洗，去除杂质。</li>
-    <li><strong>腌制：</strong>将小鱼用盐腌制，以去除水分并增加风味。</li>
-    <li><strong>干燥：</strong>通过阳光晾晒或现代设备进行烘干，直至水分降至较低水平。</li>
-</ul>
-
-<h2>营养价值</h2>
-<p>小鱼干不仅美味可口，还富含优质蛋白质、微量元素以及丰富的Omega-3脂肪酸，对心脑健康大有裨益。它是一种低脂、营养丰富的健康小吃，特别适合注重健康饮食的人士。</p>
-
-<h2>多样化食用方式</h2>
-<p>小鱼干的食用方式非常多样化：</p>
-<ul>
-    <li>可以直接作为零食享用，口感鲜香。</li>
-    <li>加入米饭、粥或汤中，增添风味。</li>
-    <li>还可以用来制作炒菜、炖汤，甚至加入沙拉中。</li>
-</ul>
-
-<p>无论是在街边的小吃摊，还是在高档餐厅，小鱼干总能找到它的身影，成为一道美味的风景线。</p>
-
-<h2>结语</h2>
-<p>希望通过今天的介绍，对小鱼干有了更深入的了解，期待在品尝这道美味小吃时，能够享受到它带来的独特风味与健康益处！</p>
+    <TabsWidget :tabs="settingsMenu"></TabsWidget>
   </Modal>
 </template>
 

@@ -16,12 +16,12 @@ export default defineConfig({
     }
   },
   build: {
+    sourcemap: true,
     rollupOptions: {
       input: {
         main: 'src/main.ts'
       },
       output: {
-        sourcemap: true,
         entryFileNames: 'js/main.js',
         chunkFileNames: 'js/[name].js',
         assetFileNames: 'public/[name][extname]',
