@@ -2,7 +2,7 @@
 
 import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
 import {site} from "~/config";
-const post = site.pages.data.find((page)=>page.title=="about");
+const post = site.pages.data.find((page)=>page.title=="about")!;
 </script>
 
 <template>

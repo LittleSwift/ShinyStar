@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {HexoPost} from "~/config";
+import {HexoPage} from "~/config";
 
-let { post } = defineProps<{post:HexoPost}>();
+let { post } = defineProps<{post:HexoPage}>();
 
 function handleClick(event: MouseEvent) {
   console.log(event);

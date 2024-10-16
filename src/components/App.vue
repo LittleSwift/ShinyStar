@@ -108,8 +108,7 @@ const settingsMenu:Tabs = [
 .headerLink{
   width: 6rem;
   height: 100%;
-  display: inline-block;
-  text-align: center;
+  display: flex;
   align-content: center;
   background-color: transparent;
   transition: all ease;
@@ -122,7 +121,7 @@ const settingsMenu:Tabs = [
   background-color: var(--header-color);
 }
 .headerLink>span{
-  display: inline-block;
+  margin: auto;
   transition: all;
   transition-duration: 0.5s;
   will-change: transform;
@@ -151,9 +150,10 @@ const settingsMenu:Tabs = [
   transition-duration: 0.5s;
   text-align: center;
   align-content: center;
-  height: 100%;
+  height: 0;
   width: 4rem;
   right: 0;
+  bottom: 1.5rem;
   z-index: 5;
   opacity: 0.5;
   cursor: pointer;
@@ -175,16 +175,17 @@ const settingsMenu:Tabs = [
 }
 .settingsContainer{
   position: relative;
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  padding: 1.5rem 0.75rem;
+  text-align: center;
 }
 .settingsIcon{
+  display: inline-flex;
   color: var(--light-text-color);
   transition: all;
   transition-duration: 0.5s;
-  text-align: center;
-  align-content: center;
-  height: 100%;
-  width: 3rem;
-  right: 0;
   z-index: 5;
   opacity: 0.5;
   cursor: pointer;
