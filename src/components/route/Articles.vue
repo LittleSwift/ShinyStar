@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {config, site} from "~/config";
-import ArticleDisplay from "../widget/ArticleDisplay.vue";
+import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
+import {reformatDate} from "~/date";
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import ArticleDisplay from "../widget/ArticleDisplay.vue";
       <div class="postCard" v-for="post in site.posts.data">
         <div class="postContent">
           <RouterLink :to="post.permalink.split(config.url)[1]"><h2 class="postTitle">{{post.title}}</h2></RouterLink>
+          <span class="date">{{reformatDate(post.date)}}</span>
           <ArticleDisplay :post="post"></ArticleDisplay>
         </div>
         <RouterLink class="postOpenLink" :to="post.permalink.split(config.url)[1]"><button class="postOpen">查看文章</button></RouterLink>

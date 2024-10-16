@@ -44,6 +44,9 @@ export interface HexoConfig {
     log?: boolean;
   };
 
+  date_format: string;
+  time_format: string;
+
   // Other configurations
   [key: string]: any;
 }

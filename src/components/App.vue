@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {config, theme} from "@/config";
+import {config, theme} from "~/config";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import {Ref, ref} from "vue";
+import {ref, watch} from "vue";
 import Modal from "~/components/widget/Modal.vue";
 import {useTheme} from "~/theme";
 import TabsWidget from "~/components/widget/tabs/TabsWidget.vue";
@@ -9,13 +9,19 @@ import {Tabs} from "~/tabs";
 const searchText = ref("");
 const settingsOpen = ref(false);
 const currentTheme = useTheme();
+const customTheme = ref("");
+watch(customTheme, (newTheme) => {
+  localStorage["customTheme"] = newTheme;
+  document.body.setAttribute("style", newTheme);
+});
+customTheme.value = localStorage["customTheme"] ?? "";
 const settingsMenu:Tabs = [
   {
     name:'外观',
     items:[
       {
         type: 'text',
-        text: '主题    ',
+        text: '主题',
         append: {
           type: 'dropdown',
           options: [
@@ -34,6 +40,15 @@ const settingsMenu:Tabs = [
           ],
           value: currentTheme
         },
+      },
+      {
+        type: 'text',
+        text: '或者自定义你的主题！',
+      },
+      {
+        type: 'textarea',
+        value: customTheme,
+        placeholder: 'CSS格式，将被附加到body上'
       }
     ]
   }
@@ -245,6 +260,4 @@ const settingsMenu:Tabs = [
     display: flex;
   }
 }
-
-
 </style>

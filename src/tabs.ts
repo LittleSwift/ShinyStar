@@ -14,6 +14,10 @@ export type TabItem = ({
   placeholder?: string;
   value: Ref;
 } | {
+  type: "textarea";
+  placeholder?: string;
+  value: Ref;
+} | {
   type: "separator";
 } | {
   type: "button";

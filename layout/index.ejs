@@ -6,8 +6,18 @@
     <title><%= config.title %></title>
     <link href="<%= url_for('/public/main.css') %>" rel="stylesheet">
     <script>
+      <%
+      function removePrevNext(obj) {
+        return JSON.stringify(obj, (key, value) => {
+          if ( key === "next" || key === "prev" ) {
+            return;
+          }
+          return value;
+        });
+      }
+      %>
         window.__hexoConfig = <%- JSON.stringify(config) %>;
-        window.__hexoSite = <%- JSON.stringify(site) %>;
+        window.__hexoSite = <%- removePrevNext(site) %>;
         window.__hexoTheme = <%- JSON.stringify(theme) %>;
     </script>
 </head>

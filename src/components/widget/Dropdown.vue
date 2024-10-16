@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import {SelectOption} from "~/tabs.js";
+import {SelectOption} from "~/tabs";
 
 const props = defineProps<{
   options: SelectOption[]

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {config, site} from "~/config";
-import ArticleDisplay from "../widget/ArticleDisplay.vue";
+import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
+import {reformatDate} from "~/date";
 </script>
 
 <template>
@@ -11,10 +12,11 @@ import ArticleDisplay from "../widget/ArticleDisplay.vue";
         <h3 class="mainTitleUrl">{{config.url.split("//")[1]}}</h3>
       </div>
     </div>
-    <div class="postArea" v-for="post in site.posts.data">
-      <div class="postCard">
+    <div class="postArea">
+      <div class="postCard" v-for="post in site.posts.data">
         <div class="postContent">
           <RouterLink :to="post.permalink.split(config.url)[1]"><h2 class="postTitle">{{post.title}}</h2></RouterLink>
+          <span class="date">{{reformatDate(post.date)}}</span>
           <ArticleDisplay :post="post"></ArticleDisplay>
         </div>
       </div>

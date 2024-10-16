@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
-import {config, site} from "~/config";
+import {site} from "~/config";
 import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
 import {useRoute} from "vue-router";
+import {reformatDate} from "~/date";
 
-const post = site.posts.data.find(post => post.title == useRoute().params.title);
+const post = site.posts.data.find(post => post.title == useRoute().params.title)!;
 </script>
 
 <template>
@@ -13,6 +14,7 @@ const post = site.posts.data.find(post => post.title == useRoute().params.title)
       <div class="postContent">
         <span class="path"><RouterLink to="/">首页</RouterLink>/<RouterLink to="/articles">文章列表</RouterLink>/{{post.title}}</span>
         <h2 class="postViewTitle">{{post.title}}</h2>
+        <span class="date">Date: {{reformatDate(post.date)}}</span>
         <ArticleDisplay :post="post"></ArticleDisplay>
       </div>
     </div>

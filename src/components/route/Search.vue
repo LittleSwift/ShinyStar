@@ -5,6 +5,7 @@ import Fuse from "fuse.js";
 import TinySegmenter from "tiny-segmenter";
 import {ref, watch} from "vue";
 import {useRoute} from "vue-router";
+import {reformatDate} from "~/date";
 
 const route = useRoute();
 const queryParam = ref(route.query.q || '');
@@ -43,6 +44,7 @@ watch(
       <div class="postCard" v-for="post in filteredArticles">
         <div class="postContent">
           <RouterLink :to="post.permalink.split(config.url)[1]"><h2 class="postTitle">{{post.title}}</h2></RouterLink>
+          <span class="date">{{reformatDate(post.date)}}</span>
           <ArticleDisplay :post="post"></ArticleDisplay>
         </div>
         <RouterLink class="postOpenLink" :to="post.permalink.split(config.url)[1]"><button class="postOpen">查看文章</button></RouterLink>

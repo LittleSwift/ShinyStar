@@ -16,9 +16,7 @@ const currentTab = ref(props.tabs[0]);
     </div>
   </div>
   <div class="tabContent">
-    <div>
-      <TabItemWidget v-for="item in currentTab.items" :item="item"></TabItemWidget>
-    </div>
+    <TabItemWidget v-for="item in currentTab.items" :item="item"></TabItemWidget>
   </div>
 </template>
 
@@ -46,5 +44,9 @@ const currentTab = ref(props.tabs[0]);
 }
 .tabSelectorContainer:hover {
   background-color: var(--focus-color);
+}
+.tabContent {
+  display: flex;
+  flex-direction: column;
 }
 </style>
