@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {config, site} from "~/config";
+import {config, site, theme} from "~/config";
 import ArticleDisplay from "~/components/widget/ArticleDisplay.vue";
 import {reformatDate} from "~/date";
 </script>
@@ -13,6 +13,15 @@ import {reformatDate} from "~/date";
       </div>
     </div>
     <div class="postArea">
+      <div class="userCard">
+        <img class="userAvatar" src="/img/avatar.png" alt="" />
+        <span class="userName">{{config.author}}</span>
+        <div class="userLinks">
+          <div class="userLinkList">
+            <a v-for="platform in Object.keys(theme.personalLinks)" :href="theme.personalLinks[platform]" class="userLinkSingleIcon"><i :class="['fab', 'fa-2x', 'fa-'+platform]"></i></a>
+          </div>
+        </div>
+      </div>
       <div class="postCard" v-for="post in site.posts.data">
         <div class="postContent">
           <RouterLink :to="post.permalink.split(config.url)[1]"><h2 class="postTitle">{{post.title}}</h2></RouterLink>
@@ -77,6 +86,67 @@ import {reformatDate} from "~/date";
 
 .postArea {
   min-height: 0;
+}
+
+.userCard {
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: var(--card-color);
+  box-shadow: 0 0 1rem var(--shadow-color);
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.userCard:hover {
+  scale: 1.02;
+  box-shadow: 0 0 1rem var(--shadow-color-hover);
+}
+
+.userAvatar {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: var(--light-text-color) solid 4px;
+  margin: 0 auto;
+}
+
+.userName {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .postArea {
+    padding: 5rem 20rem;
+  }
+  .userCard {
+    position: absolute;
+    left: calc(100% - 17.5rem);
+    width: 15rem;
+  }
+}
+.userLinks{
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+.userLinkList{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.userLinkSingleIcon{
+  margin: 0.5rem;
+  transition: all;
+  transition-duration: 0.5s;
+}
+.userLinkSingleIcon:hover{
+  scale: 1.1;
 }
 
 </style>
