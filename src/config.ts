@@ -46,9 +46,6 @@ export interface HexoConfig {
 
   date_format: string;
   time_format: string;
-
-  // Other configurations
-  [key: string]: any;
 }
 
 export type HexoPost = {

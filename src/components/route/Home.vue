@@ -9,13 +9,14 @@ import {reformatDate} from "~/date";
     <div class="background">
       <div class="mainTitle">
         <h2 class="mainTitleText">{{config.title}}</h2>
-        <h3 class="mainTitleUrl">{{config.url.split("//")[1]}}</h3>
+        <h3 class="mainTitleUrl">{{config.subtitle}}</h3>
       </div>
     </div>
     <div class="postArea">
       <div class="userCard">
         <img class="userAvatar" src="/img/avatar.png" alt="" />
         <span class="userName">{{config.author}}</span>
+        <span class="userDescription">{{config.description}}</span>
         <div class="userLinks">
           <div class="userLinkList">
             <a v-for="platform in Object.keys(theme.personalLinks)" :href="theme.personalLinks[platform]" class="userLinkSingleIcon"><i :class="['fab', 'fa-2x', 'fa-'+platform]"></i></a>
@@ -119,6 +120,17 @@ import {reformatDate} from "~/date";
   font-size: 1.5rem;
 }
 
+.userDescription {
+
+}
+@media (min-width: 768px) {
+  .postArea {
+    padding: 5rem 10rem;
+  }
+  .userCard {
+    position: relative;
+  }
+}
 @media (min-width: 1024px) {
   .postArea {
     padding: 5rem 20rem;
